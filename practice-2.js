@@ -47,7 +47,35 @@ console.log('Первое число больше', firstNormalized > secondNorm
 console.log('Первое число меньше', firstNormalized < secondNormalized);
 
 
+/* 
+Генератор случайных целых чисел от m до n.
+Учесть, что n необязательно меньше, чем m!
+*/
+
+let n = -100;
+let m = 350;
+
+// кол-во цифр, котоные могут быть сгенерированы
+let range = Math.abs(m - n);
+
+// округленное число от 0 до range
+let numberInRange = Math.round(Math.random() * range); // 400 чисел
+
+// левая граница возможного числа
+let min = Math.min(n, m);
+console.log(min * numberInRange);
 
 
+/*
+ Выводим отдельно целую и дробную части числа с точностью n.
+*/
 
+let precision_1 = 3; // кол-во знаков после запятой. Неьлзя в одном блоке объявить одну переменную.
+let number = 0x12f + .3 + .1;
 
+console.log('Исходное число', number); // 303.0000000000003
+
+// Для получения целого числа используем функцию Math.floor - (округляет в меньшую сторону)
+console.log('Целая часть', Math.floor(number));
+// остаток от деления на 1 возвращает дробную часть
+console.log('Дробная часть', Math.round(number % 1 * Math.pow(10, precision_1)));
